@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import About from '../components/About.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="QuetzalSoftware – Estabilidad & Crecimiento | Desarrollo de Software en Guatemala"
+  description="QuetzalSoftware: empresa guatemalteca de desarrollo de software especializada en soluciones web de alto rendimiento, sistemas a medida y automatización empresarial. Dirigida por Giovanni Recinos."
+>
+  <Navbar />
+  <main>
+    <Hero />
+    <Services />
+    <About />
+    <Contact />
+  </main>
+  <Footer />
+</Layout>
