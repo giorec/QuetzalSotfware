@@ -1,30 +1,42 @@
 {"message":"connected.","label":"vite","level":"info"}
-{"message":"Generated 0ms","label":"types","level":"info"}
-{"message":"connected.","label":"vite","level":"info"}
-{"message":" astro  v7.0.2 ready in 950 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
-{"message":"watching for file changes...","label":null,"level":"info"}
-{"message":"[200] / 23ms","label":null,"level":"info"}
-{"message":"[200] / 3ms","label":null,"level":"info"}
-{"message":"[Unhandled rejection] TypeError: Importing a module script failed.\n","label":"vite","level":"error"}
-{"message":"[200] / 5ms","label":null,"level":"info"}
-{"message":"[200] / 9ms","label":null,"level":"info"}
-{"message":"src/components/Contact.astro","label":"watch","level":"info"}
-{"message":"[200] / 16ms","label":null,"level":"info"}
-{"message":".env changed, restarting server...","label":"vite","level":"info"}
-{"message":".env changed, restarting server...","label":"vite","level":"info"}
-{"message":"connected.","label":"vite","level":"info"}
+{"message":"Generated 1ms","label":"types","level":"info"}
 {"message":"connected.","label":"vite","level":"info"}
 {"message":"Re-optimizing dependencies because vite config has changed","label":"vite","level":"info"}
-{"message":"server restarted.","label":"vite","level":"info"}
-{"message":"[200] / 23ms","label":null,"level":"info"}
+{"message":" astro  v7.0.2 ready in 1010 ms\n┃ Local    http://localhost:4321/\n┃ Network  use --host to expose","label":"SKIP_FORMAT","level":"info"}
+{"message":"watching for file changes...","label":null,"level":"info"}
+{"message":"[200] / 27ms","label":null,"level":"info"}
 {"message":"[200] / 3ms","label":null,"level":"info"}
-{"message":"changed tsconfig file detected: /Users/giovannirecinos/Documents/ProyectosPersonales/MY_PAGE_QUETZALSOFTWARE/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.","label":"vite","level":"info"}
-{"message":"program reload","label":"vite","level":"info"}
-{"message":"An error happened during full reload\nFailed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\nError: Failed to load url astro:server-app.js (resolved id: astro:server-app.js). Does the file exist?\n    at loadAndTransform (file:///Users/giovannirecinos/Documents/ProyectosPersonales/MY_PAGE_QUETZALSOFTWARE/node_modules/.pnpm/vite@8.1.0_esbuild@0.28.1_jiti@2.7.0/node_modules/vite/dist/node/chunks/node.js:19714:31)","label":"vite","level":"error"}
-{"message":"changed tsconfig file detected: /Users/giovannirecinos/Documents/ProyectosPersonales/MY_PAGE_QUETZALSOFTWARE/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.","label":"vite","level":"info"}
-{"message":"program reload","label":"vite","level":"info"}
-{"message":"program reload","label":"vite","level":"info"}
-{"message":"program reload","label":"vite","level":"info"}
-{"message":"changed tsconfig file detected: /Users/giovannirecinos/Documents/ProyectosPersonales/MY_PAGE_QUETZALSOFTWARE/tsconfig.json - Clearing cache and forcing full-reload to ensure TypeScript is compiled with updated config values.","label":"vite","level":"info"}
-{"message":"program reload","label":"vite","level":"info"}
-{"message":"program reload","label":"vite","level":"info"}
+{"message":"[Unhandled rejection] TypeError: Importing a module script failed.\n","label":"vite","level":"error"}
+{"message":"src/components/Contact.astro","label":"watch","level":"info"}
+{"message":"[200] / 17ms","label":null,"level":"info"}
+{"message":"[200] / 21ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 20ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 16ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"src/components/Navbar.astro","label":"watch","level":"info"}
+{"message":"[Unhandled rejection] TypeError: Importing a module script failed.\n","label":"vite","level":"error"}
+{"message":"[200] / 13ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[console.error] Astro Error while running audit's match function: TypeError: Load failed","label":"vite","level":"error"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 14ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 6ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[404] /apple-touch-icon-precomposed.png 12ms","label":null,"level":"info"}
+{"message":"[404] /apple-touch-icon.png 8ms","label":null,"level":"info"}
+{"message":"[200] / 5ms","label":null,"level":"info"}
+{"message":"[200] / 15ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"[200] / 20ms","label":null,"level":"info"}
+{"message":"[200] / 4ms","label":null,"level":"info"}

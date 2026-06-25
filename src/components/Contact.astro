@@ -202,11 +202,27 @@ const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? 'YOUR_WEB3FORMS_AC
             </p>
           </div>
 
+          <!-- hCaptcha widget (Web3Forms) -->
+          <div
+            class="h-captcha"
+            data-captcha="true"
+            data-callback="onCaptchaSuccess"
+            data-expired-callback="onCaptchaExpired"
+          ></div>
+          <!-- Captcha hint -->
+          <p id="captcha-hint" class="text-xs text-amber-600 flex items-center gap-1.5 -mt-1">
+            <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+            </svg>
+            Completa el captcha para habilitar el envío.
+          </p>
+
           <!-- Submit button -->
           <button
             type="submit"
             id="contact-submit"
-            class="w-full flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 active:bg-green-900 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-green-200 hover:shadow-green-300 transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-green-200 disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none"
+            disabled
+            class="w-full flex items-center justify-center gap-2 bg-green-700 hover:bg-green-800 active:bg-green-900 text-white font-bold text-base px-8 py-4 rounded-xl shadow-lg shadow-green-200 hover:shadow-green-300 transition-all duration-300 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-green-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 disabled:shadow-none disabled:bg-gray-400"
           >
             <!-- Default state -->
             <span id="btn-default" class="flex items-center gap-2">
@@ -343,6 +359,37 @@ const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? 'YOUR_WEB3FORMS_AC
     successDiv?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
+  // hCaptcha callbacks — must be global functions
+  (window as any).onCaptchaSuccess = () => {
+    if (!submitBtn) return;
+    submitBtn.disabled = false;
+    const hint = document.getElementById('captcha-hint');
+    if (hint) {
+      hint.classList.remove('text-amber-600');
+      hint.classList.add('text-green-600');
+      hint.innerHTML = `
+        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        Captcha completado. ¡Ya puedes enviar tu mensaje!`;
+    }
+  };
+
+  (window as any).onCaptchaExpired = () => {
+    if (!submitBtn) return;
+    submitBtn.disabled = true;
+    const hint = document.getElementById('captcha-hint');
+    if (hint) {
+      hint.classList.remove('text-green-600');
+      hint.classList.add('text-amber-600');
+      hint.innerHTML = `
+        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+        </svg>
+        El captcha expiró. Por favor compruébalo de nuevo.`;
+    }
+  };
+
   resetBtn?.addEventListener('click', () => {
     form?.reset();
     form?.classList.remove('hidden');
@@ -350,6 +397,22 @@ const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? 'YOUR_WEB3FORMS_AC
     successDiv?.classList.remove('flex');
     hideError();
     setLoading(false);
+    // Disable button and reset hint again
+    if (submitBtn) submitBtn.disabled = true;
+    const hint = document.getElementById('captcha-hint');
+    if (hint) {
+      hint.classList.remove('text-green-600');
+      hint.classList.add('text-amber-600');
+      hint.innerHTML = `
+        <svg class="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+        </svg>
+        Completa el captcha para habilitar el envío.`;
+    }
+    // Reset hCaptcha widget if available
+    if (typeof (window as any).hcaptcha !== 'undefined') {
+      (window as any).hcaptcha.reset();
+    }
   });
 
   form?.addEventListener('submit', async (e) => {
@@ -384,3 +447,6 @@ const WEB3FORMS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? 'YOUR_WEB3FORMS_AC
     }
   });
 </script>
+
+<!-- hCaptcha JS — required by Web3Forms when hCaptcha is enabled -->
+<script src="https://web3forms.com/client/script.js" async defer></script>
